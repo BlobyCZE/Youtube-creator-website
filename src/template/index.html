@@ -1,0 +1,77 @@
+<html>
+    <title>{{social['CHANNEL_NAME']}}</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static',filename='img/favicon.ico')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+
+    <head>
+        <meta name="viewport" content="width=1024" />
+    </head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" id="main-stylesheet-css" href="../static/style/style.css" type="text/css" media="all" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <body>
+        <div style="background: #030321;">
+                <svg viewBox="0 0 1300 200" style="background-color: #030321; width: 100%;">
+                    <symbol id="s-text">
+                            <text text-anchor="middle" x="50%" y="80%">{{social['CHANNEL_NAME']}}</text>
+                    </symbol>
+                    <g class="g-ants">
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                    </g>
+                </svg>
+                <section id="section3" class="home-stats overlay feature-section cd-section" style="padding-bottom: 0px; padding-top: 0px; margin-bottom: 1px;">
+                    <div class="row">
+                            <div class="stat-list columns" style="margin-bottom: 25px;">
+                                <div class="stat-group medium-6 large-3 columns">
+                                        <span class="stat-number">
+                                            <div class="container">
+                                                    <div class="shadows">
+                                                        <span>{{subcriber}}</span>
+                                                    </div>
+                                            </div>
+                                        </span>
+                                        <span class="social-property"> subscribers on YouTube</span>
+                                        <a class="button ghost-primary tiny" href={{ social["CHANNEL_URL"] }}  target="_blank">Subscribe</a>
+                                        <br />
+                                </div>
+                            </div>
+                    </div>
+                </section>
+        </div>
+        <div>
+                <video autoplay muted loop id="myVideo">
+                    <source src="{{ url_for('static',filename='video/intro.mp4') }}" type="video/mp4" />
+                </video>
+        </div>
+        <h2 class="line-title" style="color: bisque; font-family: 'Electrolize';">Latest Videos</h2>
+        <div class="small-12 columns">
+                <div class="video-grid-container" style="background: rgb(255, 255, 255) url() no-repeat center center; background-color: #1e1e20;">
+                    <ul class="small-block-grid-1 medium-block-grid-4 high-block-grid-3" id="pre" ,style="color:antiquewhite"></ul>
+                </div>
+        </div>
+        <script type="text/javascript">
+            var data = {{ html_data | tojson  }};
+        </script>
+        <script src="{{url_for('static',filename='js/index.js')}}"></script>
+        <h5 class="line-title" style="color: bisque; font-family: 'Electrolize';">Follow Us</h5>
+        <div class="footer-basic" style="background: seashell;">
+                <footer>
+                <div class="social">
+                    <a target="popup" href={{ social['INSTAGRAM_URL'] }} ><i class="icon ion-social-instagram" id="ins" ></i></a>
+                    <a target="popup" href={{ social['CHANNEL_URL'] }} ><i class="icon ion-social-youtube" id="you"></i></a>
+                    <a target="popup" href={{ social['TWITTER_URL'] }}><i class="icon ion-social-twitter" id="twi"></i></a>
+                </div>
+                </footer>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</html>
